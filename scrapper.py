@@ -1,10 +1,5 @@
-from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
-from webdriver_manager.chrome import ChromeDriverManager
-from selenium.webdriver.common.keys import Keys
 import pandas as pd
 
 import time
@@ -18,7 +13,7 @@ import time
 # service=Service(ChromeDriverManager().install())
 driver = webdriver.Chrome()
 
-driver.get("https://app.folk.app/shared/All-US-Family-Offices-MmIn8iedXIvLRqSdkdwZOguMsOnOw6dA")
+driver.get("https://app.folk.app/shared/1000-Funds-of-Funds-in-Asia-FVHPShnOEpbz8EhwY8TnaKsb8zriMG3E")
 # wait_for_page_load(driver)
 driver.maximize_window()
 
@@ -40,6 +35,7 @@ while True:
     new_data_loaded = False
     row_divs = driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[2]/div/div/div/div')
     row_divs = row_divs.find_elements(By.XPATH, "//div[@role='row']")
+    print("Company divs", len(company_divs))
 
     for div in company_divs:
         index = div.get_attribute('aria-rowindex')
@@ -83,6 +79,6 @@ print("Final Data")
 print("Length : ", len(final_data))
 
 df = pd.DataFrame(final_data)
-df.to_excel("us-family-offices.xlsx", index=False)
+df.to_excel("1000-funds-of-funds-in-asia.xlsx", index=False)
 
 driver.quit()

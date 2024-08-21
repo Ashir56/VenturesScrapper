@@ -22,7 +22,7 @@ import requests
 #     print(f"Data has been appended to {file_path}")
 
 
-def append_to_json_file(new_data, file_path='investors_filtered_data.json'):
+def append_to_json_file(new_data, file_path='investors_filtered_data2(1288).json'):
     # Check if the file exists
     if os.path.exists(file_path):
         # Load existing data from the file
@@ -112,10 +112,10 @@ def api_request(page, access_token, refresh_token):
     # print("Scrapped page: " + str(i))
 
 
-new_access_token = "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJhcGkuZnVuZGluZ3N0YWNrLmNvbSIsInN1YiI6MTE0NzA3LCJleHAiOjE3MjE2NTEyOTksImlhdCI6MTcyMTY1MTE3OSwianRpIjoiZDlmNzNjZmYtMWY0OC00NmFlLWFkNzgtOThiMTAyNmE1ZDZiIiwidXNlciI6eyJpZCI6MTE0NzA3LCJuYW1lIjpudWxsLCJlbWFpbCI6ImpvY2tlLm1hcnRlbGl1c0BhcXZjLmNvbSIsImFkbWluIjpmYWxzZX19.ZaQjlimajg4PHRWCXIzsXW-pMeNxkFYH2IEYH8fR6gvTfL95xAPaBuAbmw27NocsEf_RHxH5b2ZICBI6k390UhANue7L6MDs2nOoob14IGutfcOy77wKMz9mGNKdk-IZpKfEmaDfO4ZceiiwW-0tzlFzrhASoEwGOBVL3cyUWIHlA5C-ciAM_B1zGlcG0LiOCsAbhQad6OLxqnWBOnwRN3jEfAhtFdxtpnlCR34G7bBfpSQLCDIib1culShAT255ZOWXuhLaYXc7h51LYkIs35rCIMcTbxgdKtfs1_7SNxgnQdMK5yi9GHtN_-hlAKfR7HP1Pt9gjhFpP_GZvsiqXQ`"
-new_refresh_token = "ddda988463dcbcd1ca58c2dafbea765959707ee0492be862ba34d39ba45b2dec"
+new_access_token = "eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJhcGkuZnVuZGluZ3N0YWNrLmNvbSIsInN1YiI6MTE0NzA3LCJleHAiOjE3MjE3NDA4NDksImlhdCI6MTcyMTc0MDcyOSwianRpIjoiMGViZmQ3OTMtOTcwYi00ZThlLTgwYzUtYzM3YzVhZjNmZThlIiwidXNlciI6eyJpZCI6MTE0NzA3LCJuYW1lIjpudWxsLCJlbWFpbCI6ImpvY2tlLm1hcnRlbGl1c0BhcXZjLmNvbSIsImFkbWluIjpmYWxzZX19.OEmn420y2i9GJcDmHFw9iTkRZA3pqeYikwZR_ViPE_yF4OPgCRTuIRGKZoYZk-SrWJLnITNz7dV6eDjsVGQ9s2KGLWMxJor_cVBIF4SpIxSkgHd1XZiubJeIxmvjuDkRoh-x0sBA992tJMgSb4Wp_GvuQx6iJxPL3wepko5uxMLKba19s40NfEaSRh9LO-1Z_D6YoD0EJ7f7HDjKyhDVV5B7OQdPx5GCnByc9E4R2Jau2m_x6chfVZ5_4SxsQE3VWk2kuoVFjC7zWpjlhgDqWup7x8FG0G0ecGhpT2wdx6EcpX6va7a9HcsnA0bf2GSt9-SL-1ejDVoPcULDWOkKOA"
+new_refresh_token = "38fff24c67af37ad191d0cd1a781122df7268537e4508392696ab548a02e5427"
 
-for i in range(740, 1565):
+for i in range(1565, 1570):
 
     response = api_request(i, new_access_token, new_refresh_token)
     if response.status_code == 401:
@@ -138,6 +138,6 @@ for i in range(740, 1565):
         print("Scrapped page: " + str(i))
         break
 
-    wait = random.randint(20, 30)
+    wait = random.randint(10, 15)
     print(f"waiting {wait}s")
     time.sleep(wait)
